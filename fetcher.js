@@ -14,6 +14,7 @@ const fetchData = async () => {
   page.on('console', msg => console.log(msg.text()));
 
   await page.goto('https://rushcard.io/deck-search/?&offset=0', {timeout: 0});
+  await page.setDefaultNavigationTimeout(0);
 
   const final = await page.waitForSelector('.card-img-overlay').then(async () => {
     return await page.evaluate(() => {
