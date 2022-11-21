@@ -19,7 +19,7 @@ const client = new Client({
 client.once("ready", () => {
     client.channels.cache.forEach(async c => {
         const channelId = c.id
-        if( c.guild.me.permissionsIn(c.id).has('MANAGE_WEBHOOKS') ) {
+        if(c.guild.me.permissionsIn(c.id).has('MANAGE_WEBHOOKS') && c.name.includes('playground') ) {
             console.log(c.name)
 
             const data  = await fetchData()
